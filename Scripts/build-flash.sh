@@ -100,7 +100,7 @@ function cleanAndUpdate() {
         rm -rf ${KERNEL} > /dev/null 2>&1
     else
         cd ${KERNEL_HOME}
-        git clone -b ${ANYKERNEL_BRANCH} https://github.com/nathanchance/AnyKernel2 Flash-AK2
+        git clone -b ${ANYKERNEL_BRANCH} https://github.com/nathanchance/AnyKernel2 Apokolyps-AK2
     fi
 
     # Clean source directory if it exists, clone it if not
@@ -112,7 +112,7 @@ function cleanAndUpdate() {
         git clean -fdx > /dev/null 2>&1
     else
         cd ${KERNEL_HOME}
-        git clone -b ${KERNEL_BRANCH} https://github.com/nathanchance/angler Flash-Kernel
+        git clone -b ${KERNEL_BRANCH} https://github.com/THERAD1/android_kernel_oneplus_sdm845.git Apokolyps-Kernel
     fi
 
     # If the toolchain directory doesn't exist, clone it
@@ -130,7 +130,7 @@ function cleanAndUpdate() {
 
 # MAKE KERNEL
 function makeKernel() {
-    cd "${SOURCE_DIR}"
+    cd "${Apokolyps-Kernel}"
 
     # Make variable for proper building
     MAKE="make O=${OUT_DIR}"
